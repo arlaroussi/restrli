@@ -28,14 +28,9 @@ class DataSeeder(private val boxRepository: BoxRepository): ApplicationRunner {
 
         var listeBox: ArrayList<Box>? = null
 
-        //val aBox: Box = gson.fromJson(boxArray.get(0), Box::class.java)
-
         for (aElem in boxArray) {
             val aBox: Box = gson.fromJson(aElem, Box::class.java)
             boxRepository.save(aBox)
-            //println(aBox.nom)
-            //println(aBox.pieces)
-            //listeBox?.add(aBox)
         }
     }
 }
