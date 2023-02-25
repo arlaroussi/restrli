@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "nom": "Tasty Blend",
+        "pieces": 12,
+        "prix": 12.50,
+        "image": "tasty-blend"
+    },
+    {
+        "id": 2,
+        "nom": "Amateur Mix",
+        "pieces": 18,
+        "prix": 15.90,
+        "image": "amateur-mix"
+    },
+    {
+        "id": 3,
+        "nom": "Saumon Original",
+        "pieces": 11,
+        "prix": 12.50,
+        "image": "saumon-original"
+    },
+    {
+        "id": 4,
+        "nom": "Salmon Lovers",
+        "pieces": 18,
+        "prix": 15.90,
+        "image": "salmon-lovers"
+    },
+    {
+        "id": 5,
+        "nom": "Salmon Classic",
+        "pieces": 10,
+        "prix": 15.90,
+        "image": "salmon-classic"
+    },
+    {
+        "id": 6,
+        "nom": "Master Mix",
+        "pieces": 12,
+        "prix": 15.90,
+        "image": "master-mix"
+    },
+    {
+        "id": 7,
+        "nom": "Sunrise",
+        "pieces": 18,
+        "prix": 15.90,
+        "image": "sunrise"
+    }
+]
