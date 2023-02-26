@@ -5,7 +5,7 @@ import jakarta.persistence.*
 @Entity
 @Table(name="box")
 class Box(
-    @Column(name = "nom", unique = true, nullable = false)
+    @Column(name = "nom",  nullable = false)
     var nom: String,
 
     @Column(name = "pieces", nullable = false)
@@ -17,6 +17,9 @@ class Box(
     @Column(name = "img", nullable = false)
     var image: String,
 
-    @Id @GeneratedValue var id: Long? = null,
+    @Id @GeneratedValue
+    var id: Long? = null,
 
+    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "box")
+    var aliments: List<Aliment>? = null,
 )

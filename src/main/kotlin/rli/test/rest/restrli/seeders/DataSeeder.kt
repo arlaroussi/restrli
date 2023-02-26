@@ -11,9 +11,11 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonParser
 import com.google.gson.stream.JsonReader
 import org.springframework.stereotype.Component
+import rli.test.rest.restrli.model.Aliment
+import rli.test.rest.restrli.repository.AlimentRepository
 
 @Component
-class DataSeeder(private val boxRepository: BoxRepository): ApplicationRunner {
+class DataSeeder(private val boxRepository: BoxRepository, private val alimentRepository: AlimentRepository): ApplicationRunner {
 
     override fun run(args: ApplicationArguments?) {
         var url: String = "E:/SPRING/restrli/src/main/assets/boxes.json"
@@ -26,11 +28,21 @@ class DataSeeder(private val boxRepository: BoxRepository): ApplicationRunner {
 
         println(boxArray.size())
 
-        var listeBox: ArrayList<Box>? = null
-
+        var aBox: Box
+        var aBox1 : Box
         for (aElem in boxArray) {
-            val aBox: Box = gson.fromJson(aElem, Box::class.java)
-            boxRepository.save(aBox)
+            aBox = gson.fromJson(aElem, Box::class.java)
+            aBox1 = Box("${aBox.nom}", "${aBox.pieces}".toInt(), "${aBox.prix}".toDouble(), "${aBox.image}")
+            boxRepository.save(aBox1)
+
+            for (elem in aBox.aliments!!) {
+                println("${elem.nom}" + " " + "${elem.quantite}" + " " + "${aBox.id}")
+                var alim = Aliment("${elem.id}".toLong(),"${elem.nom}", "${elem.quantite}", aBox)
+                println(alim.nom)
+                println(alim.quantite)
+                alimentRepository.save(alim)
+            }
         }
     }
 }
+
